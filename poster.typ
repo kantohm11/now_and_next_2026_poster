@@ -1,0 +1,233 @@
+#import "@preview/pollux:0.1.0": *
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+
+// Theme
+#set-theme(steel-blue)
+#update-theme(lang: "en")
+
+// Layout
+#set page("a0", margin: 0cm)
+#set-poster-layout(layout-a0)
+#set columns(gutter: 2.0em)
+
+// Text size for A0
+#set text(size: 24pt)
+
+// Math font
+#show math.equation: set text(font: "New Computer Modern Math")
+
+// --- Fletcher diagram functions ---
+
+#let span-diagram-G-H() = fletcher.diagram(
+  cell-size: 25mm,
+  node-stroke: none,
+  node((0, 0), $"Vect"_H$),
+  node((1, 0), $cal(C)$),
+  node((0, 1), $bold("Vect")_G^(omega=0)$),
+  edge((0, 0), (1, 0), $i_(cal(C))$, "hook->"),
+  edge((0, 0), (0, 1), $i_(cal(D))$, "hook->", label-side: right),
+)
+
+#let span-diagram-U1-TY-lattice() = fletcher.diagram(
+  cell-size: 25mm,
+  node-stroke: none,
+  node((0, 0), $"Vect"_(ZZ_2)$),
+  node((1, 0), $"TY"(ZZ_2)_"lattice"$),
+  node((0, 1), $bold("Vect")_("U"(1))^(omega=0)$),
+  edge((0, 0), (1, 0), $i_(cal(C))$, "hook->"),
+  edge((0, 0), (0, 1), $i_(cal(D))$, "hook->", label-side: right),
+)
+
+// --- Title ---
+
+#title-box(
+  "Symmetry Spans and Enforced Gaplessness",
+  authors: "Takamasa Ando¹, Kantaro Ohmori²",
+  institutes: "¹Yukawa Institute for Theoretical Physics, ²RIKEN iTHEMS",
+)
+#v(-1.0cm)
+
+// --- Main content ---
+
+#box(inset: 2.0cm)[
+#columns(2, [
+
+// ========================================
+// LEFT COLUMN: Pedagogical Introduction
+// ========================================
+
+#column-box(heading: "What Physicists Do")[
+
+  #align(center)[
+    _What is the *macroscopic* (long-distance) physics given a microscopic model?_
+  ]
+  #v(0.5em)
+
+  #grid(
+    columns: (auto, 1fr),
+    align: (center + horizon, left + horizon),
+    column-gutter: 1em,
+    // Left: microscopic theory
+    [#align(center)[
+      #image("span_enforcing/pictures/QFT.svg", height: 8em)
+      *Microscopic theory*
+    ]],
+    // Right: arrows with "?" and outcomes
+    [#stack(dir: ttb, spacing: 0.8em,
+      grid(columns: (auto, auto), gutter: 0.6em, align: horizon,
+        text(size: 56pt)[#sym.arrow.long],
+        grid(columns: (auto, auto), gutter: 0.4em, align: horizon,
+          image("span_enforcing/pictures/copper_wire.jpg", height: 3.5em),
+          [_gapless_ (conductor)],
+        ),
+      ),
+      align(center, text(size: 56pt, weight: "bold")[?]),
+      grid(columns: (auto, auto), gutter: 0.6em, align: horizon,
+        text(size: 56pt)[#sym.arrow.long],
+        grid(columns: (auto, auto), gutter: 0.4em, align: horizon,
+          image("span_enforcing/pictures/tires.jpeg", height: 3.5em),
+          [_gapped_ (insulator)],
+        ),
+      ),
+    )],
+  )
+]
+
+#v(0.8em)
+
+#column-box(heading: "Symmetry as a Bridge")[
+
+  #align(center)[
+    #rect(width: 90%, height: 8em, stroke: 1pt + gray, radius: 5pt)[
+      #align(center + horizon)[
+        _Illustration placeholder_ \
+        Particles #sym.arrow.r Bulk material \
+        with symmetry constraint bridging them
+      ]
+    ]
+  ]
+  #v(1em)
+
+  *Charge conservation*: if a quantity (e.g. electric charge) is conserved
+  in the microscopic theory, it is also conserved macroscopically.
+  Symmetry properties of the microscopic theory constrain
+  the possible macroscopic phases.
+]
+
+#v(0.8em)
+
+#column-box(heading: [Existing Tool: 't Hooft Anomaly Matching])[
+
+  When a symmetry group $G$ has an *anomaly* ($omega != 0$),
+  the infrared (macroscopic) theory *must be gapless*.
+
+  This is one of the most powerful tools for constraining low-energy
+  physics using symmetry alone.
+
+  #align(center)[
+    #emph[Can we find *other* symmetry properties that enforce gaplessness?]
+  ]
+]
+
+#v(0.8em)
+
+#column-box(heading: "New Proposal: Symmetry Span Criterion")[
+
+  Consider *two* symmetries $cal(C)$ and $cal(D)$ acting on a theory,
+  sharing a common sub-symmetry $cal(E)$:
+
+  #align(center)[#span-diagram-G-H()]
+
+  If their TQFT categories have *trivial intersection*
+  over $cal(E)$, then the IR theory must be *gapless*!
+
+  - Directly applicable to *lattice systems*.
+  - Complementary to anomaly matching.
+
+  Based on Ando--Ohmori (2026) @Ando:2026ffy.
+]
+
+
+#colbreak()
+
+
+// ========================================
+// RIGHT COLUMN: Technical Content
+// ========================================
+
+#column-box(heading: [The Span Setup: 1+1d, continuous $G$, finite $H$])[
+
+  - $cal(D) = bold("Vect")_G^(omega=0)$: continuous symmetry ($G$ connected)
+  - $cal(C)$: (possibly non-invertible) finite symmetry
+  - $cal(E) = "Vect"_H$: finite subgroup $H subset G$
+  - $"TQFT"(G) tilde.eq NN[G"-SPTs"]$ (no SSB for connected $G$)
+
+  *Criterion:* If
+  $i_(cal(C))^* "TQFT"(cal(C)) inter i_(cal(D))^* "TQFT"(G) = {0}$,
+  the system admits no symmetric TQFT — it must be gapless.
+]
+
+#v(0.8em)
+
+#column-box(heading: [$"U"(1) + "TY"(ZZ_2)$: Kramers--Wannier Duality])[
+
+  - $i_(cal(C))^* "TQFT"("TY"(ZZ_2))
+    = NN[("Vect"_(ZZ_2) plus.o "Vect")]$
+    - $"SSB"_(ZZ_2)$ and $"triv"_(ZZ_2)$ exchanged by KW duality
+  - $i_(cal(D))^* "TQFT"("U"(1)) tilde.eq NN["Vect"]$
+  - Intersection $= {0}$ #sym.arrow.r.double *no symmetric TQFT!*
+]
+
+#v(0.8em)
+
+#column-box(heading: "XX Chain (Lattice Realization)")[
+
+  #align(center)[#span-diagram-U1-TY-lattice()]
+
+  Spin chain $cal(H) = limits(times.o)_j CC^2_j$ with:
+  - KW duality $"TY"(ZZ_2)_"lattice"$ and $"U"(1)$: $Q = sum_j X_j$
+  - $H = sum_j (Y_j Z_(j+1) - Z_j Y_(j+1))$
+    $arrow.squiggly^("RG")$ compact boson at $R = sqrt(2) R_("s.d.")$
+  - Span generates *Onsager algebra*
+    $arrow.squiggly^("RG")$ $"U"(1)^"shift" times "U"(1)^"wind"$ with mixed anomaly
+]
+
+#v(0.8em)
+
+#column-box(heading: [$"U"(1)$-Invariant $ZZ_N$ Clock Chain])[
+
+  - $cal(H) = limits(times.o)_j CC^N_j$, with $X^N = Z^N = 1$,
+    $X Z = e^(2 pi i \/ N) Z X$
+  - Same span structure with $"TY"(ZZ_N)_"lattice"$
+  - Generates *Onsager algebra*
+  - Symmetric *interacting* Hamiltonian
+  - RG flow: $c = 1, 3(n-1) \/ (n+1)$ (integrable)
+]
+
+#v(0.8em)
+
+#column-box(heading: "Outlook")[
+
+  - *Systematic Hamiltonian search:*
+    Find lattice Hamiltonians preserving gaplessness-enforcing spans
+    — _seeking collaborators!_
+  - *Higher dimensions:*
+    The span criterion extends naturally;
+    e.g. 3+1d Maxwell theory at special coupling.
+]
+
+#v(0.8em)
+
+#bibliography("span_enforcing/references.bib",
+  style: "springer-mathphys-brackets.csl",
+  title: "References",
+)
+
+])
+]
+
+
+#bottom-box()[
+  Supported by RIKEN iTHEMS.
+  arXiv: 2602.11696
+]
