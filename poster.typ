@@ -63,31 +63,35 @@
   ]
   #v(0.5em)
 
+  #import fletcher.cetz as cetz
   #grid(
-    columns: (auto, 1fr),
-    align: (center + horizon, left + horizon),
-    column-gutter: 1em,
+    columns: (auto, 1fr, auto),
+    align: (center + horizon, center + horizon, left + horizon),
+    column-gutter: 0.3em,
     // Left: microscopic theory
     [#align(center)[
-      #image("span_enforcing/pictures/QFT.svg", height: 8em)
+      #image("span_enforcing/pictures/QFT.svg", width: 10em)
       *Microscopic theory*
     ]],
-    // Right: arrows with "?" and outcomes
-    [#stack(dir: ttb, spacing: 0.8em,
-      grid(columns: (auto, auto), gutter: 0.6em, align: horizon,
-        text(size: 56pt)[#sym.arrow.long],
-        grid(columns: (auto, auto), gutter: 0.4em, align: horizon,
-          image("span_enforcing/pictures/copper_wire.jpg", height: 3.5em),
-          [_gapless_ (conductor)],
-        ),
+    // Center: diverging double arrows with "?"
+    [#cetz.canvas(length: 1em, {
+      import cetz.draw: *
+      // Upper arrow (both-side)
+      line((-2, 0.4), (2, 1.4), stroke: 4pt, mark: (start: "stealth", end: "stealth", fill: black))
+      // Lower arrow (both-side)
+      line((-2, -0.4), (2, -1.4), stroke: 4pt, mark: (start: "stealth", end: "stealth", fill: black))
+      // "?" label
+      content((0, 0), text(weight: "bold", size: 48pt)[?])
+    })],
+    // Right: macroscopic outcomes
+    [#stack(dir: ttb, spacing: 1.2em,
+      grid(columns: (4em, auto), gutter: 0.4em, align: (center + horizon, left + horizon),
+        image("span_enforcing/pictures/copper_wire.jpg", height: 2.5em),
+        [_gapless_ \ (conductor)],
       ),
-      align(center, text(size: 56pt, weight: "bold")[?]),
-      grid(columns: (auto, auto), gutter: 0.6em, align: horizon,
-        text(size: 56pt)[#sym.arrow.long],
-        grid(columns: (auto, auto), gutter: 0.4em, align: horizon,
-          image("span_enforcing/pictures/tires.jpeg", height: 3.5em),
-          [_gapped_ (insulator)],
-        ),
+      grid(columns: (4em, auto), gutter: 0.4em, align: (center + horizon, left + horizon),
+        image("span_enforcing/pictures/tires.jpeg", height: 2.5em),
+        [_gapped_ \ (insulator)],
       ),
     )],
   )
