@@ -77,9 +77,9 @@
     [#cetz.canvas(length: 1em, {
       import cetz.draw: *
       // Upper arrow (both-side)
-      line((-2, 0.4), (2, 1.4), stroke: 4pt, mark: (start: "stealth", end: "stealth", fill: black))
+      line((-2, 0.4), (2, 1.4), stroke: 6pt, mark: (start: "stealth", end: "stealth", fill: black, scale: 1.8))
       // Lower arrow (both-side)
-      line((-2, -0.4), (2, -1.4), stroke: 4pt, mark: (start: "stealth", end: "stealth", fill: black))
+      line((-2, -0.4), (2, -1.4), stroke: 6pt, mark: (start: "stealth", end: "stealth", fill: black, scale: 1.8))
       // "?" label
       content((0, 0), text(weight: "bold", size: 48pt)[?])
     })],
