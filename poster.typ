@@ -2,8 +2,14 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
 // Theme
+// iTHEMS brand colors
 #set-theme(steel-blue)
-#update-theme(lang: "en")
+#update-theme(
+  lang: "en",
+  heading-color: rgb("#B50000"),
+  fill-color: rgb("#B50000"),
+  stroke-color: rgb("#690000"),
+)
 
 // Layout
 #set page("a0", margin: 0cm)
