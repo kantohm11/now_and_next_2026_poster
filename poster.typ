@@ -86,22 +86,22 @@
 // LEFT COLUMN: Pedagogical Introduction
 // ========================================
 
-#column-box(heading: "What Physicists Do")[
+#column-box(heading: "Bridging Scales")[
 
   #align(center)[
-    _What is the *macroscopic* (long-distance) physics given a microscopic model?_
+    _Constrain IR from UV symmetry. Engineer UV from IR targets._
   ]
   #v(0.5em)
 
   #import fletcher.cetz as cetz
   #grid(
     columns: (auto, 1fr, auto),
-    align: (center + horizon, center + horizon, left + horizon),
+    align: (center + top, center + horizon, left + top),
     column-gutter: 0.3em,
-    // Left: microscopic theory
+    // Left: microscopic model
     [#align(center)[
+      *Microscopic model*
       #image("span_enforcing/pictures/QFT.svg", width: 10em)
-      *Microscopic theory*
     ]],
     // Center: diverging double arrows with "?"
     [#cetz.canvas(length: 1em, {
@@ -113,8 +113,12 @@
       // "?" label
       content((0, 0), text(weight: "bold", size: 48pt)[?])
     })],
-    // Right: macroscopic outcomes
-    [#stack(dir: ttb, spacing: 1.2em,
+    // Right: macroscopic phenomena
+    [#align(center)[
+      *Macroscopic phenomena*
+    ]
+    #v(0.3em)
+    #stack(dir: ttb, spacing: 1.2em,
       grid(columns: (4em, auto), gutter: 0.4em, align: (center + horizon, left + horizon),
         image("span_enforcing/pictures/copper_wire.jpg", height: 2.5em),
         [_gapless_ \ (conductor)],
