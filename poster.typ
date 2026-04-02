@@ -46,11 +46,35 @@
 
 // --- Title ---
 
-#title-box(
-  "Symmetry Spans and Enforced Gaplessness",
-  authors: "Takamasa Ando¹, Kantaro Ohmori²",
-  institutes: "¹Yukawa Institute for Theoretical Physics, ²RIKEN iTHEMS",
-)
+// Custom title box with logo
+#rect(
+  inset: 0.5em,
+  width: 100%,
+  fill: rgb("#B50000"),
+  stroke: rgb("#690000"),
+)[
+  #set text(fill: white, weight: "regular")
+  #grid(
+    columns: (auto, 1fr, auto),
+    align: (left + horizon, center + horizon, right + horizon),
+    column-gutter: 1em,
+    // Left: iTHEMS logo
+    pad(left: 1em, image("ithems_logo.svg", height: 4em)),
+    // Center: title and authors
+    [
+      #v(25pt)
+      #set align(center)
+      #text(size: 75pt)[Symmetry Spans and Enforced Gaplessness]
+      #v(1.4em, weak: true)
+      #text(size: 55pt)[Takamasa Ando¹, Kantaro Ohmori²]
+      #v(1.2em, weak: true)
+      #text(size: 40pt)[¹Yukawa Institute for Theoretical Physics, ²RIKEN iTHEMS]
+      #v(25pt)
+    ],
+    // Right: spacing to balance
+    pad(right: 1em, box(width: 4em * 4)),
+  )
+]
 #v(-1.0cm)
 
 // --- Main content ---
