@@ -66,7 +66,7 @@
       #set align(center)
       #text(size: 75pt)[Symmetry Spans and Enforced Gaplessness]
       #v(1.4em, weak: true)
-      #text(size: 55pt)[Takamasa Ando¹, Kantaro Ohmori²]
+      #text(size: 55pt)[Takamasa Ando¹, #underline[Kantaro Ohmori]²]
       #v(1.2em, weak: true)
       #text(size: 40pt)[¹Yukawa Institute for Theoretical Physics, ²RIKEN iTHEMS]
       #v(25pt)
