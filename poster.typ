@@ -133,23 +133,18 @@
 
 #v(0.8em)
 
-#column-box(heading: "Symmetry as a Bridge")[
+#column-box(heading: "Symmetry Classifies Phases")[
 
   #align(center)[
-    #rect(width: 90%, height: 8em, stroke: 1pt + gray, radius: 5pt)[
-      #align(center + horizon)[
-        _Illustration placeholder_ \
-        Particles #sym.arrow.r Bulk material \
-        with symmetry constraint bridging them
-      ]
-    ]
+    #image("pictures/ferromagnetism.pdf", width: 65%)
   ]
-  #v(1em)
 
-  *Charge conservation*: if a quantity (e.g. electric charge) is conserved
-  in the microscopic theory, it is also conserved macroscopically.
-  Symmetry properties of the microscopic theory constrain
-  the possible macroscopic phases.
+  *SO(3) spin rotation symmetry* allows both:
+  - *Ferromagnet* — SO(3) spontaneously broken, gapless (magnons)
+  - *Paramagnet* — SO(3) preserved, gapped
+
+  Can symmetry do more than classify?
+  Can it *force* gaplessness — exclude all gapped phases?
 ]
 
 #v(0.8em)
