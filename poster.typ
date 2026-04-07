@@ -104,6 +104,9 @@
 // LEFT COLUMN: Pedagogical Introduction
 // ========================================
 
+#align(center)[#text(size: 28pt, style: "italic", fill: gray.darken(20%))[Overview]]
+#v(0.1em)
+
 #column-box(heading: "Bridging Scales")[
 
   #align(center)[
@@ -119,7 +122,7 @@
     // Left: microscopic model
     [#align(center)[
       *Microscopic model*
-      #image("span_enforcing/pictures/QFT.svg", width: 10em)
+      #image("span_enforcing/pictures/QFT.svg", width: 8em)
     ]],
     // Center: diverging double arrows with "?"
     [#cetz.canvas(length: 1em, {
@@ -156,7 +159,7 @@
   Spins on a lattice with *SO(3) rotation symmetry* can realize different phases:
 
   #align(center)[
-    #image("pictures/ferromagnetism.pdf", width: 45%)
+    #image("pictures/ferromagnetism.pdf", width: 40%)
   ]
 
   - *Ferromagnet* : SO(3) spontaneously broken, gapless 
@@ -267,6 +270,9 @@
 // ========================================
 // RIGHT COLUMN: Technical Content
 // ========================================
+
+#align(center)[#text(size: 28pt, style: "italic", fill: gray.darken(20%))[Technical Details]]
+#v(0.1em)
 
 #column-box(heading: [The Span Setup: 1+1d, continuous $G$, finite $H$])[
 
