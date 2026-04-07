@@ -25,14 +25,14 @@
 // --- Callout blocks ---
 
 #let _callout(body, symbol, accent) = {
-  let bar-width = 28pt
+  let bar-width = 36pt
   block(width: 100%, radius: 4pt, clip: true, stroke: 1pt + accent, fill: accent.lighten(92%), above: 0.6em, below: 0.6em)[
     #place(left)[
       #rect(width: bar-width, height: 100%, fill: accent, stroke: none)
     ]
     #place(left + horizon)[
       #box(width: bar-width)[
-        #align(center)[#text(fill: white, weight: "bold", size: 24pt)[#symbol]]
+        #align(center)[#text(fill: white, weight: "bold", size: 30pt)[#symbol]]
       ]
     ]
     #pad(left: bar-width + 0.5em, rest: 0.5em)[#body]
@@ -203,8 +203,56 @@
   Consider *two* symmetries $cal(C)$ and $cal(D)$ acting on a theory,
   sharing a common sub-symmetry $cal(E)$:
 
-  #align(center)[#span-diagram-G-H()]
-  #v(0.2em)
+  #align(center)[
+    #import fletcher.cetz as cetz
+    #cetz.canvas(length: 1.5em, {
+      import cetz.draw: *
+
+      // --- Left: Symmetry side ---
+      let cx = -4.2
+      let ca = (cx, 0.45)
+      let cb = (cx, -0.45)
+      let r = 1.4
+      // Draw fills
+      circle(ca, radius: r, stroke: none, fill: rgb("#CC6622").lighten(88%))
+      circle(cb, radius: r, stroke: none, fill: rgb("#2266AA").lighten(88%))
+      // Find intersection and fill with gray
+      intersections("si", {
+        circle(ca, radius: r, stroke: none, fill: none)
+        circle(cb, radius: r, stroke: none, fill: none)
+      })
+      merge-path(close: true, fill: rgb("#555555").lighten(75%), stroke: none, {
+        // arc along circle A (top circle) — midpoint at bottom of A
+        arc-through("si.0", (cx, 0.45 - r), "si.1")
+        // arc along circle B (bottom circle) — midpoint at top of B
+        arc-through("si.1", (cx, -0.45 + r), "si.0")
+      })
+      // Draw borders on top
+      circle(ca, radius: r, stroke: 2.5pt + rgb("#CC6622"), fill: none)
+      circle(cb, radius: r, stroke: 2.5pt + rgb("#2266AA"), fill: none)
+      // Labels
+      content((cx, 1.4), text(weight: "bold", size: 22pt)[$ cal(C) $])
+      content((cx, -1.4), text(weight: "bold", size: 22pt)[$ cal(D) $])
+      content((cx, 0), text(weight: "bold", size: 20pt)[$ cal(E) $])
+      content((cx, -2.3), text(size: 20pt)[Symmetries])
+
+      // --- Arrow ---
+      line((-1.5, 0), (1.5, 0), stroke: 2.5pt, mark: (end: "stealth", fill: black, scale: 1.4))
+      content((0, 0.6), text(size: 17pt)[gapped phases])
+
+      // --- Right: Gapped phases side ---
+      circle((4.2, 0), radius: (2.4, 1.8), stroke: 2.5pt + rgb("#555555"), fill: rgb("#555555").lighten(92%))
+      circle((3.1, 0.4), radius: (1.0, 0.7), stroke: 2.5pt + rgb("#CC6622"), fill: rgb("#CC6622").lighten(82%))
+      circle((5.3, -0.4), radius: (1.0, 0.7), stroke: 2.5pt + rgb("#2266AA"), fill: rgb("#2266AA").lighten(82%))
+      // Labels
+      content((3.1, 0.4), text(size: 17pt)[$ cal(C) $ phases])
+      content((5.3, -0.4), text(size: 17pt)[$ cal(D) $ phases])
+      content((4.2, -1.5), text(size: 17pt)[$ cal(E) $ phases])
+      content((4.2, -2.7), text(size: 20pt)[Gapped phases])
+      // "no overlap" indicator
+      content((4.2, 0.0), text(weight: "bold", size: 24pt, fill: rgb("#CC2222"))[$ emptyset $])
+    })
+  ]
 
   #callout-important[
     If their TQFT categories have *trivial intersection*
@@ -212,7 +260,12 @@
   ]
 
   In all examples, the span generates a continuous symmetry
-  with anomaly macroscopically.
+  with anomaly macroscopically. \
+  #sym.arrow.r *Lattice alternative of continuous 't Hooft anomaly!*
+
+  #callout-question[
+    Systematic constructions and discoveries of gapless lattice systems based on symmetry spans?
+  ]
 ]
 
 
