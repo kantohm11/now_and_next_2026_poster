@@ -22,20 +22,40 @@
 // Math font
 #show math.equation: set text(font: "New Computer Modern Math")
 
+// --- Callout blocks ---
+
+#let _callout(body, symbol, accent) = {
+  let bar-width = 28pt
+  block(width: 100%, radius: 4pt, clip: true, stroke: 1pt + accent, fill: accent.lighten(92%), above: 0.6em, below: 0.6em)[
+    #place(left)[
+      #rect(width: bar-width, height: 100%, fill: accent, stroke: none)
+    ]
+    #place(left + horizon)[
+      #box(width: bar-width)[
+        #align(center)[#text(fill: white, weight: "bold", size: 24pt)[#symbol]]
+      ]
+    ]
+    #pad(left: bar-width + 0.5em, rest: 0.5em)[#body]
+  ]
+}
+
+#let callout-question(body) = _callout(body, "?", rgb("#2266AA"))
+#let callout-important(body) = _callout(body, "!", rgb("#CC2222"))
+
 // --- Fletcher diagram functions ---
 
 #let span-diagram-G-H() = fletcher.diagram(
-  cell-size: 25mm,
+  cell-size: (25mm, 18mm),
   node-stroke: none,
-  node((0, 0), $"Vect"_H$),
+  node((0, 0), $cal(E)$),
   node((1, 0), $cal(C)$),
-  node((0, 1), $bold("Vect")_G^(omega=0)$),
+  node((0, 1), $cal(D)$),
   edge((0, 0), (1, 0), $i_(cal(C))$, "hook->"),
   edge((0, 0), (0, 1), $i_(cal(D))$, "hook->", label-side: right),
 )
 
 #let span-diagram-U1-TY-lattice() = fletcher.diagram(
-  cell-size: 25mm,
+  cell-size: (25mm, 18mm),
   node-stroke: none,
   node((0, 0), $"Vect"_(ZZ_2)$),
   node((1, 0), $"TY"(ZZ_2)_"lattice"$),
@@ -75,7 +95,7 @@
     pad(right: 1em, box(width: 4em * 4)),
   )
 ]
-#v(-1.0cm)
+#v(-1.5cm)
 
 // --- Main content ---
 
@@ -91,7 +111,7 @@
   #align(center)[
     _Constrain IR from UV symmetry. Engineer UV from IR targets._
   ]
-  #v(0.5em)
+  #v(0.3em)
 
   #import fletcher.cetz as cetz
   #grid(
@@ -131,37 +151,42 @@
   )
 ]
 
-#v(0.8em)
+#v(0.15em)
 
 #column-box(heading: "Symmetry Classifies Phases")[
 
-  Spins on a lattice with *SO(3) rotation symmetry* can realize different macroscopic phases:
+  Spins on a lattice with *SO(3) rotation symmetry* can realize different phases:
 
   #align(center)[
-    #image("pictures/ferromagnetism.pdf", width: 55%)
+    #image("pictures/ferromagnetism.pdf", width: 45%)
   ]
 
   - *Ferromagnet* — SO(3) spontaneously broken, gapless (magnons)
   - *Paramagnet* — SO(3) preserved, gapped
 
-  Can symmetry do more than classify? \
-  Can it *force* gaplessness — exclude all gapped phases?
-]
-
-#v(0.8em)
-
-#column-box(heading: [Existing Tool: 't Hooft Anomaly Matching])[
-
-  An *anomaly* is a quantum property of a symmetry that persists across scales. \
-  *'t Hooft (1980)*: when a *continuous* symmetry $G$ has an anomaly ($omega != 0$),
-  the IR theory *must be gapless*.
-
-  #align(center)[
-    #emph[Can we find *other* symmetry properties that enforce gaplessness?]
+  #callout-question[
+    Can symmetry do more than classify? \
+    Can it *force* gaplessness — exclude all gapped phases?
   ]
 ]
 
-#v(0.8em)
+#v(0.15em)
+
+#column-box(heading: [Existing Tool: 't Hooft Anomaly Matching])[
+
+  An *anomaly* is a quantum property of a symmetry that persists across scales.
+
+  #callout-important[
+    *'t Hooft (1980)*: when a *continuous* symmetry $G$ has an anomaly ($omega != 0$),
+    the IR theory *must be gapless*.
+  ]
+
+  #callout-question[
+    Can we find *other* symmetry properties that enforce gaplessness?
+  ]
+]
+
+#v(0.15em)
 
 #column-box(heading: "New Proposal: Symmetry Span Criterion")[
 
@@ -169,9 +194,12 @@
   sharing a common sub-symmetry $cal(E)$:
 
   #align(center)[#span-diagram-G-H()]
+  #v(0.2em)
 
-  If their TQFT categories have *trivial intersection*
-  over $cal(E)$, then the IR theory must be *gapless*!
+  #callout-important[
+    If their TQFT categories have *trivial intersection*
+    over $cal(E)$, then the IR theory must be *gapless*!
+  ]
 
   - Directly applicable to *lattice systems*.
   - Complementary to anomaly matching.
@@ -199,7 +227,7 @@
   the system admits no symmetric TQFT — it must be gapless.
 ]
 
-#v(0.8em)
+#v(0.15em)
 
 #column-box(heading: [$"U"(1) + "TY"(ZZ_2)$: Kramers--Wannier Duality])[
 
@@ -210,7 +238,7 @@
   - Intersection $= {0}$ #sym.arrow.r.double *no symmetric TQFT!*
 ]
 
-#v(0.8em)
+#v(0.15em)
 
 #column-box(heading: "XX Chain (Lattice Realization)")[
 
@@ -224,7 +252,7 @@
     $arrow.squiggly^("RG")$ $"U"(1)^"shift" times "U"(1)^"wind"$ with mixed anomaly
 ]
 
-#v(0.8em)
+#v(0.15em)
 
 #column-box(heading: [$"U"(1)$-Invariant $ZZ_N$ Clock Chain])[
 
@@ -236,7 +264,7 @@
   - RG flow: $c = 1, 3(n-1) \/ (n+1)$ (integrable)
 ]
 
-#v(0.8em)
+#v(0.15em)
 
 #column-box(heading: "Outlook")[
 
@@ -248,7 +276,7 @@
     e.g. 3+1d Maxwell theory at special coupling.
 ]
 
-#v(0.8em)
+#v(0.3em)
 
 #bibliography("span_enforcing/references.bib",
   style: "springer-mathphys-brackets.csl",
