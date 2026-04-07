@@ -1,5 +1,6 @@
 #import "@preview/pollux:0.1.0": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+// QR codes as external SVGs (same visual size)
 
 // Theme
 // iTHEMS brand colors
@@ -83,13 +84,28 @@
       #text(size: 40pt)[¹Yukawa Institute for Theoretical Physics, ²RIKEN iTHEMS]
       #v(25pt)
     ],
-    // Right: arXiv link
-    pad(right: 1.5em)[
-      #align(center)[
-        #text(size: 36pt)[arXiv:] \
-        #link("https://arxiv.org/abs/2602.11696")[#text(size: 36pt)[2602.11696]] \
-        #text(size: 24pt)[@Ando:2026ffy]
-      ]
+    // Right: arXiv + poster QR codes
+    pad(right: 1em)[
+      #grid(
+        columns: (1fr, 1fr),
+        gutter: 0.8em,
+        align: (center + bottom, center + bottom),
+        [#align(center)[
+          #text(size: 24pt)[arXiv] \
+          #link("https://arxiv.org/abs/2602.11696")[#text(size: 24pt)[2602.11696]] \
+          #v(0.2em)
+          #box(fill: white, inset: 3pt, radius: 2pt)[
+            #image("pictures/qr_arxiv.svg", width: 4em)
+          ]
+        ]],
+        [#align(center)[
+          #text(size: 24pt)[This poster] \
+          #v(0.2em)
+          #box(fill: white, inset: 3pt, radius: 2pt)[
+            #image("pictures/qr_poster.svg", width: 4em)
+          ]
+        ]],
+      )
     ],
   )
 ]
