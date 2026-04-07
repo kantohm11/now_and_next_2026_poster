@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout poster repo
         uses: actions/checkout@v4
-        with:
-          submodules: true
 
       - name: Install Typst
         uses: typst-community/setup-typst@v4

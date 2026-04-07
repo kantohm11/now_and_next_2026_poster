@@ -122,7 +122,7 @@
     // Left: microscopic model
     [#align(center)[
       *Microscopic model*
-      #image("span_enforcing/pictures/QFT.svg", width: 8em)
+      #image("pictures/QFT.svg", width: 8em)
     ]],
     // Center: diverging double arrows with "?"
     [#cetz.canvas(length: 1em, {
@@ -141,11 +141,11 @@
     #v(0.3em)
     #stack(dir: ttb, spacing: 1.2em,
       grid(columns: (4em, auto), gutter: 0.4em, align: (center + horizon, left + horizon),
-        image("span_enforcing/pictures/copper_wire.jpg", height: 2.5em),
+        image("pictures/copper_wire.jpg", height: 2.5em),
         [_gapless_ \ (conductor)],
       ),
       grid(columns: (4em, auto), gutter: 0.4em, align: (center + horizon, left + horizon),
-        image("span_enforcing/pictures/tires.jpeg", height: 2.5em),
+        image("pictures/tires.jpeg", height: 2.5em),
         [_gapped_ \ (insulator)],
       ),
     )],
@@ -353,7 +353,7 @@
 
 #v(0.3em)
 
-#bibliography("span_enforcing/references.bib",
+#bibliography("references.bib",
   style: "springer-mathphys-brackets.csl",
   title: "References",
 )
