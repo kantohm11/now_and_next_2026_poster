@@ -44,15 +44,7 @@
 
 // --- Fletcher diagram functions ---
 
-#let span-diagram-G-H() = fletcher.diagram(
-  cell-size: (25mm, 18mm),
-  node-stroke: none,
-  node((0, 0), $cal(E)$),
-  node((1, 0), $cal(C)$),
-  node((0, 1), $cal(D)$),
-  edge((0, 0), (1, 0), $i_(cal(C))$, "hook->"),
-  edge((0, 0), (0, 1), $i_(cal(D))$, "hook->", label-side: right),
-)
+#let span-diagram-full() = image("pictures/span_diagram_full.pdf", height: 6em)
 
 #let span-diagram-U1-TY-lattice() = fletcher.diagram(
   cell-size: (25mm, 18mm),
@@ -167,8 +159,8 @@
     #image("pictures/ferromagnetism.pdf", width: 45%)
   ]
 
-  - *Ferromagnet* — SO(3) spontaneously broken, gapless (magnons)
-  - *Paramagnet* — SO(3) preserved, gapped
+  - *Ferromagnet* : SO(3) spontaneously broken, gapless 
+  - *Paramagnet* : SO(3) preserved, gapped
 
   #callout-question[
     Can symmetry do more than classify? \
@@ -277,6 +269,8 @@
 // ========================================
 
 #column-box(heading: [The Span Setup: 1+1d, continuous $G$, finite $H$])[
+
+  #align(center)[#span-diagram-full()]
 
   - $cal(D) = bold("Vect")_G^(omega=0)$: continuous symmetry ($G$ connected)
   - $cal(C)$: (possibly non-invertible) finite symmetry
