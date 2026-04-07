@@ -1,0 +1,49 @@
+name: Compile and Deploy Poster
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout poster repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v4
+
+      - name: Install fonts
+        run: |
+          mkdir -p ~/.local/share/fonts
+          curl -sL https://fonts.google.com/download?family=Lato -o /tmp/lato.zip
+          unzip -o /tmp/lato.zip -d ~/.local/share/fonts/
+          fc-cache -fv
+
+      - name: Compile poster
+        run: typst compile poster.typ poster.pdf
+
+      - name: Checkout pages repo
+        uses: actions/checkout@v4
+        with:
+          repository: kantohm11/kantohm11.github.io
+          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+          path: pages
+          ref: master
+
+      - name: Copy PDF to pages
+        run: |
+          mkdir -p pages/talks/now_and_next_2026_poster
+          cp poster.pdf pages/talks/now_and_next_2026_poster/poster.pdf
+
+      - name: Push to pages
+        run: |
+          cd pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add talks/now_and_next_2026_poster/poster.pdf
+          git diff --cached --quiet && echo "No changes" || (git commit -m "Update poster PDF" && git push)
