@@ -135,15 +135,16 @@
 
 #column-box(heading: "Symmetry Classifies Phases")[
 
+  Spins on a lattice with *SO(3) rotation symmetry* can realize different macroscopic phases:
+
   #align(center)[
-    #image("pictures/ferromagnetism.pdf", width: 65%)
+    #image("pictures/ferromagnetism.pdf", width: 55%)
   ]
 
-  *SO(3) spin rotation symmetry* allows both:
   - *Ferromagnet* — SO(3) spontaneously broken, gapless (magnons)
   - *Paramagnet* — SO(3) preserved, gapped
 
-  Can symmetry do more than classify?
+  Can symmetry do more than classify? \
   Can it *force* gaplessness — exclude all gapped phases?
 ]
 
@@ -151,11 +152,9 @@
 
 #column-box(heading: [Existing Tool: 't Hooft Anomaly Matching])[
 
-  When a symmetry group $G$ has an *anomaly* ($omega != 0$),
-  the infrared (macroscopic) theory *must be gapless*.
-
-  This is one of the most powerful tools for constraining low-energy
-  physics using symmetry alone.
+  An *anomaly* is a quantum property of a symmetry that persists across scales.
+  When a *continuous* symmetry $G$ has an anomaly ($omega != 0$),
+  the IR theory *must be gapless*.
 
   #align(center)[
     #emph[Can we find *other* symmetry properties that enforce gaplessness?]
