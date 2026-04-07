@@ -210,31 +210,30 @@
 
       // --- Left: Symmetry side ---
       let cx = -4.2
-      let ca = (cx, 0.45)
-      let cb = (cx, -0.45)
-      let r = 1.4
+      let ca = (cx, 0.5)
+      let cb = (cx, -0.5)
+      let rx = 1.8
+      let ry = 1.3
       // Draw fills
-      circle(ca, radius: r, stroke: none, fill: rgb("#CC6622").lighten(88%))
-      circle(cb, radius: r, stroke: none, fill: rgb("#2266AA").lighten(88%))
+      circle(ca, radius: (rx, ry), stroke: none, fill: rgb("#CC6622").lighten(88%))
+      circle(cb, radius: (rx, ry), stroke: none, fill: rgb("#2266AA").lighten(88%))
       // Find intersection and fill with gray
       intersections("si", {
-        circle(ca, radius: r, stroke: none, fill: none)
-        circle(cb, radius: r, stroke: none, fill: none)
+        circle(ca, radius: (rx, ry), stroke: none, fill: none)
+        circle(cb, radius: (rx, ry), stroke: none, fill: none)
       })
       merge-path(close: true, fill: rgb("#555555").lighten(75%), stroke: none, {
-        // arc along circle A (top circle) — midpoint at bottom of A
-        arc-through("si.0", (cx, 0.45 - r), "si.1")
-        // arc along circle B (bottom circle) — midpoint at top of B
-        arc-through("si.1", (cx, -0.45 + r), "si.0")
+        arc-through("si.0", (cx, 0.5 - ry), "si.1")
+        arc-through("si.1", (cx, -0.5 + ry), "si.0")
       })
       // Draw borders on top
-      circle(ca, radius: r, stroke: 2.5pt + rgb("#CC6622"), fill: none)
-      circle(cb, radius: r, stroke: 2.5pt + rgb("#2266AA"), fill: none)
+      circle(ca, radius: (rx, ry), stroke: 2.5pt + rgb("#CC6622"), fill: none)
+      circle(cb, radius: (rx, ry), stroke: 2.5pt + rgb("#2266AA"), fill: none)
       // Labels
-      content((cx, 1.4), text(weight: "bold", size: 22pt)[$ cal(C) $])
-      content((cx, -1.4), text(weight: "bold", size: 22pt)[$ cal(D) $])
-      content((cx, 0), text(weight: "bold", size: 20pt)[$ cal(E) $])
-      content((cx, -2.3), text(size: 20pt)[Symmetries])
+      content((cx, 1.4), text(weight: "bold", size: 28pt)[$ cal(C) $])
+      content((cx, -1.4), text(weight: "bold", size: 28pt)[$ cal(D) $])
+      content((cx, 0), text(weight: "bold", size: 26pt)[$ cal(E) $])
+      content((cx, -2.5), text(size: 28pt)[Symmetries])
 
       // --- Arrow ---
       line((-1.5, 0), (1.5, 0), stroke: 2.5pt, mark: (end: "stealth", fill: black, scale: 1.4))
@@ -245,18 +244,19 @@
       circle((3.1, 0.4), radius: (1.0, 0.7), stroke: 2.5pt + rgb("#CC6622"), fill: rgb("#CC6622").lighten(82%))
       circle((5.3, -0.4), radius: (1.0, 0.7), stroke: 2.5pt + rgb("#2266AA"), fill: rgb("#2266AA").lighten(82%))
       // Labels
-      content((3.1, 0.4), text(size: 17pt)[$ cal(C) $ phases])
-      content((5.3, -0.4), text(size: 17pt)[$ cal(D) $ phases])
-      content((4.2, -1.5), text(size: 17pt)[$ cal(E) $ phases])
-      content((4.2, -2.7), text(size: 20pt)[Gapped phases])
+      content((3.1, 0.4), text(size: 23pt)[$cal(C)$-phases])
+      content((5.3, -0.4), text(size: 23pt)[$cal(D)$-phases])
+      content((4.2, -1.3), text(size: 23pt)[$cal(E)$-phases])
+      content((4.2, -2.5), text(size: 28pt)[Gapped phases])
       // "no overlap" indicator
       content((4.2, 0.0), text(weight: "bold", size: 24pt, fill: rgb("#CC2222"))[$ emptyset $])
     })
   ]
 
   #callout-important[
-    If their TQFT categories have *trivial intersection*
-    over $cal(E)$, then the IR theory must be *gapless*!
+    If no gapped $cal(E)$-phase can be simultaneously
+    a $cal(C)$-phase and a $cal(D)$-phase,
+    then the theory must be *gapless*!
   ]
 
   In all examples, the span generates a continuous symmetry
