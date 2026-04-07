@@ -91,8 +91,14 @@
       #text(size: 40pt)[¹Yukawa Institute for Theoretical Physics, ²RIKEN iTHEMS]
       #v(25pt)
     ],
-    // Right: spacing to balance
-    pad(right: 1em, box(width: 4em * 4)),
+    // Right: arXiv link
+    pad(right: 1.5em)[
+      #align(center)[
+        #text(size: 36pt)[arXiv:] \
+        #link("https://arxiv.org/abs/2602.11696")[#text(size: 36pt)[2602.11696]] \
+        #text(size: 24pt)[@Ando:2026ffy]
+      ]
+    ],
   )
 ]
 #v(-1.5cm)
@@ -181,6 +187,8 @@
     the IR theory *must be gapless*.
   ]
 
+  However, perturbative anomalies cannot be realized on a lattice.
+
   #callout-question[
     Can we find *other* symmetry properties that enforce gaplessness?
   ]
@@ -189,6 +197,8 @@
 #v(0.15em)
 
 #column-box(heading: "New Proposal: Symmetry Span Criterion")[
+
+  A *lattice alternative* to 't Hooft anomaly matching.
 
   Consider *two* symmetries $cal(C)$ and $cal(D)$ acting on a theory,
   sharing a common sub-symmetry $cal(E)$:
@@ -201,10 +211,8 @@
     over $cal(E)$, then the IR theory must be *gapless*!
   ]
 
-  - Directly applicable to *lattice systems*.
-  - Complementary to anomaly matching.
-
-  Based on Ando--Ohmori (2026) @Ando:2026ffy.
+  In all examples, the span generates a continuous symmetry
+  with anomaly macroscopically.
 ]
 
 
@@ -284,10 +292,4 @@
 )
 
 ])
-]
-
-
-#bottom-box()[
-  Supported by RIKEN iTHEMS.
-  arXiv: 2602.11696
 ]
