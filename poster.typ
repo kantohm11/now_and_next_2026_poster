@@ -53,8 +53,12 @@
   node((0, 0), $"Vect"_(ZZ_2)$),
   node((1, 0), $"TY"(ZZ_2)_"lattice"$),
   node((0, 1), $bold("Vect")_("U"(1))^(omega=0)$),
+  node((1, 1), $cal(S)_"XX"$),
+  node((1.57, 1), $supset "Onsager alg."$, stroke: none),
   edge((0, 0), (1, 0), $i_(cal(C))$, "hook->"),
   edge((0, 0), (0, 1), $i_(cal(D))$, "hook->", label-side: right),
+  edge((1, 0), (1, 1), "->"),
+  edge((0, 1), (1, 1), "->"),
 )
 
 // --- Title ---
@@ -339,7 +343,7 @@
   - KW duality $"TY"(ZZ_2)_"lattice"$ and $"U"(1)$: $Q = sum_j X_j$
   - $H = sum_j (Y_j Z_(j+1) - Z_j Y_(j+1))$
     $arrow.squiggly^("RG")$ compact boson at $R = sqrt(2) R_("s.d.")$
-  - Span generates *Onsager algebra*
+  - Span generates *Onsager algebra* @Pace:2024oys @Vernier:2018han
     $arrow.squiggly^("RG")$ $"U"(1)^"shift" times "U"(1)^"wind"$ with mixed anomaly
 ]
 
@@ -350,7 +354,7 @@
   - $cal(H) = limits(times.o)_j CC^N_j$, with $X^N = Z^N = 1$,
     $X Z = e^(2 pi i \/ N) Z X$
   - Same span structure with $"TY"(ZZ_N)_"lattice"$
-  - Generates *Onsager algebra*
+  - Generates *Onsager algebra* @Vernier:2018han
   - Symmetric *interacting* Hamiltonian
   - RG flow: $c = 1, 3(n-1) \/ (n+1)$ (integrable)
 ]
