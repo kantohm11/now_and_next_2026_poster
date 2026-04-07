@@ -67,11 +67,11 @@
 )[
   #set text(fill: white, weight: "regular")
   #grid(
-    columns: (auto, 1fr, auto),
+    columns: (16em, 1fr, 16em),
     align: (left + horizon, center + horizon, right + horizon),
     column-gutter: 1em,
     // Left: iTHEMS logo
-    pad(left: 1em, image("ithems_logo.svg", height: 4em)),
+    pad(left: 1.5em, image("ithems_logo.svg", height: 3.5em)),
     // Center: title and authors
     [
       #v(25pt)
