@@ -152,7 +152,7 @@
 
 #column-box(heading: [Existing Tool: 't Hooft Anomaly Matching])[
 
-  An *anomaly* is a quantum property of a symmetry that persists across scales.
+  An *anomaly* is a quantum property of a symmetry that persists across scales. \
   *'t Hooft (1980)*: when a *continuous* symmetry $G$ has an anomaly ($omega != 0$),
   the IR theory *must be gapless*.
 
