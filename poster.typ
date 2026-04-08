@@ -206,9 +206,9 @@
 
 #v(0.15em)
 
-#column-box(heading: "New Proposal: Symmetry Span Criterion")[
+#column-box(heading: [New Proposal: Symmetry Span Criterion @Ando:2026ffy])[
 
-  A *lattice alternative* to 't Hooft anomaly matching @Ando:2026ffy.
+  An alternative to anomaly matching that *works on the lattice*.
 
   Consider *two* symmetries $cal(C)$ and $cal(D)$ acting on a theory,
   sharing a common sub-symmetry $cal(E)$:
