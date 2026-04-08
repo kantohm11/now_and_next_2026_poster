@@ -91,6 +91,7 @@
             </date>
           </group>
           <text macro="access" prefix=". "/>
+          <text variable="URL" prefix=". "/>
         </else-if>
         <else-if type="chapter paper-conference" match="any">
           <group delimiter=" ">
@@ -139,6 +140,7 @@
         <else>
           <group delimiter=", ">
             <text macro="title"/>
+            <text variable="note"/>
             <text variable="URL"/>
             <date variable="issued">
               <date-part name="year" prefix="(" suffix=")"/>

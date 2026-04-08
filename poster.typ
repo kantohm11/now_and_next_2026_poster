@@ -208,7 +208,7 @@
 
 #column-box(heading: "New Proposal: Symmetry Span Criterion")[
 
-  A *lattice alternative* to 't Hooft anomaly matching.
+  A *lattice alternative* to 't Hooft anomaly matching @Ando:2026ffy.
 
   Consider *two* symmetries $cal(C)$ and $cal(D)$ acting on a theory,
   sharing a common sub-symmetry $cal(E)$:
@@ -359,12 +359,15 @@
   ]
 ]
 
-#v(0.3em)
-
-#bibliography("references.bib",
-  style: "springer-mathphys-brackets.csl",
-  title: "References",
-)
-
 ])
+
+#heading(depth: 1)[References]
+#block(height: 5em, width: 100%)[
+  #show bibliography: set text(size: 26pt)
+  #show bibliography: body => columns(2, body)
+  #bibliography("references.bib",
+    style: "springer-mathphys-brackets.csl",
+    title: none,
+  )
+]
 ]
