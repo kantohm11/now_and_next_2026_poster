@@ -99,14 +99,14 @@
           #link("https://arxiv.org/abs/2602.11696")[#text(size: 24pt)[2602.11696]] \
           #v(0.2em)
           #box(fill: white, inset: 3pt, radius: 2pt)[
-            #image("pictures/qr_arxiv.svg", width: 4em)
+            #image("pictures/qr_arxiv.svg", width: 4.4em)
           ]
         ]],
         [#align(center)[
           #text(size: 24pt)[This poster] \
           #v(0.2em)
           #box(fill: white, inset: 3pt, radius: 2pt)[
-            #image("pictures/qr_poster.svg", width: 4em)
+            #image("pictures/qr_poster.svg", width: 4.4em)
           ]
         ]],
       )
