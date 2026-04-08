@@ -343,7 +343,7 @@
   - KW duality $"TY"(ZZ_2)_"lattice"$ and $"U"(1)$: $Q = sum_j X_j$
   - $H = sum_j (Y_j Z_(j+1) - Z_j Y_(j+1))$
     $arrow.squiggly^("RG")$ compact boson at $R = sqrt(2) R_("s.d.")$
-  - Span generates *Onsager algebra* @Pace:2024oys @Vernier:2018han
+  - Span generates *Onsager algebra* @Vernier:2018han @Pace:2024oys
     $arrow.squiggly^("RG")$ $"U"(1)^"shift" times "U"(1)^"wind"$ with mixed anomaly
 ]
 
@@ -351,24 +351,28 @@
 
 #column-box(heading: [$"U"(1)$-Invariant $ZZ_N$ Clock Chain])[
 
-  - $cal(H) = limits(times.o)_j CC^N_j$, with $X^N = Z^N = 1$,
-    $X Z = e^(2 pi i \/ N) Z X$
-  - Same span structure with $"TY"(ZZ_N)_"lattice"$
-  - Generates *Onsager algebra* @Vernier:2018han
-  - Symmetric *interacting* Hamiltonian
-  - RG flow: $c = 1, 3(n-1) \/ (n+1)$ (integrable)
+  - $cal(H) = limits(times.o)_j CC^N_j$, same span with $"TY"(ZZ_N)_"lattice"$,
+    Onsager algebra @Vernier:2018han
+
+  #callout-important[
+    Symmetric *interacting* Hamiltonian with integrable RG flow:
+    $c = 1, 3(n-1) \/ (n+1)$
+  ]
 ]
 
-#v(0.15em)
+#v(0.1em)
 
 #column-box(heading: "Outlook")[
 
-  - *Systematic Hamiltonian search:*
-    Find lattice Hamiltonians preserving gaplessness-enforcing spans
-    — _seeking collaborators!_
   - *Higher dimensions:*
     The span criterion extends naturally;
     e.g. 3+1d Maxwell theory at special coupling.
+
+  #callout-question[
+    *Systematic Hamiltonian search:*
+    Find lattice Hamiltonians preserving gaplessness-enforcing spans
+    — _seeking collaborators!_
+  ]
 ]
 
 #v(0.3em)
