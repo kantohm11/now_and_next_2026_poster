@@ -124,7 +124,7 @@
 // LEFT COLUMN: Pedagogical Introduction
 // ========================================
 
-#align(center)[#text(size: 28pt, style: "italic", fill: gray.darken(20%))[#underline[Overview]]]
+#align(center)[#text(size: 28pt, style: "italic", fill: gray.darken(60%))[#underline[Overview]]]
 #v(0.1em)
 
 #column-box(heading: "Bridging Scales")[
@@ -282,7 +282,7 @@
 // RIGHT COLUMN: Technical Content
 // ========================================
 
-#align(center)[#text(size: 28pt, style: "italic", fill: gray.darken(20%))[#underline[Technical Details]]]
+#align(center)[#text(size: 28pt, style: "italic", fill: gray.darken(60%))[#underline[Technical Details]]]
 #v(0.1em)
 
 #column-box(heading: [The Span Setup: 1+1d, continuous $G$, finite $H subset G$])[
