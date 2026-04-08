@@ -335,28 +335,21 @@
 
 #v(0.15em)
 
-#column-box(heading: "XX Chain (Lattice Realization)")[
+#column-box(heading: "Lattice Realizations")[
 
   #align(center)[#span-diagram-U1-TY-lattice()]
 
-  Spin chain $cal(H) = limits(times.o)_j CC^2_j$ with:
-  - KW duality $"TY"(ZZ_2)_"lattice"$ and $"U"(1)$: $Q = sum_j X_j$
-  - $H = sum_j (Y_j Z_(j+1) - Z_j Y_(j+1))$
-    $arrow.squiggly^("RG")$ compact boson at $R = sqrt(2) R_("s.d.")$
-  - Span generates *Onsager algebra* @Vernier:2018han @Pace:2024oys
-    $arrow.squiggly^("RG")$ $"U"(1)^"shift" times "U"(1)^"wind"$ with mixed anomaly
-]
+  *XX chain:* $cal(H) = limits(times.o)_j CC^2_j$ \
+    #context h(measure([*XX chain:*#" "]).width)with KW duality $"TY"(ZZ_2)$ and $"U"(1)$: $Q = sum_j X_j$.
+  - Span generates *Onsager algebra* @Vernier:2018han @Pace:2024oys, $tilde(Q) = sum_j Z_j Z_(j+1)$.
 
-#v(0.15em)
-
-#column-box(heading: [$"U"(1)$-Invariant $ZZ_N$ Clock Chain])[
-
-  - $cal(H) = limits(times.o)_j CC^N_j$, same span with $"TY"(ZZ_N)_"lattice"$,
-    Onsager algebra @Vernier:2018han
+  *$ZZ_N$ clock chain:* $cal(H) = limits(times.o)_j CC^N_j$, same span with $"TY"(ZZ_N)$, Onsager algebra @Vernier:2018han.
+  - Symmetric *interacting* Hamiltonian \  with integrable RG flow: $c = 1, 3(n-1) \/ (n+1)$ @Vernier:2018han.
 
   #callout-important[
-    Symmetric *interacting* Hamiltonian with integrable RG flow:
-    $c = 1, 3(n-1) \/ (n+1)$
+    Span provides a *new lattice argument* for gaplessness: 
+    #v(.2em)
+    $arrow.squiggly^("RG")$ $"U"(1)^"shift" times "U"(1)^"wind"$ with mixed anomaly
   ]
 ]
 
