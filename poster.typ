@@ -129,11 +129,6 @@
 
 #column-box(heading: "Bridging Scales")[
 
-  #align(center)[
-    _Constrain IR from UV symmetry. Engineer UV from IR targets._
-  ]
-  #v(0.3em)
-
   #import fletcher.cetz as cetz
   #grid(
     columns: (auto, 1fr, auto),
@@ -182,8 +177,8 @@
     #image("pictures/ferromagnetism.pdf", width: 40%)
   ]
 
-  - *Ferromagnet* : SO(3) spontaneously broken, gapless 
-  - *Paramagnet* : SO(3) preserved, gapped
+  - *Ferromagnet*: SO(3) spontaneously broken, gapless
+  - *Paramagnet*: SO(3) preserved, gapped
 
   #callout-question[
     Can symmetry do more than classify? \
@@ -274,13 +269,9 @@
     then the theory must be *gapless*!
   ]
 
-  In all examples, the span generates a continuous symmetry
-  with anomaly macroscopically. \
-  #sym.arrow.r *Lattice alternative of continuous 't Hooft anomaly!*
-
-  #callout-question[
-    Systematic constructions and discoveries of gapless lattice systems based on symmetry spans?
-  ]
+  - In all examples: span $arrow.r.double$ continuous symmetry with anomaly
+    #sym.arrow.r *Lattice alternative of continuous 't Hooft anomaly!*
+  - Applied to lattice spin chains #sym.arrow.r *(right column)*
 ]
 
 
@@ -307,9 +298,9 @@
 #v(0.15em)
 
 #column-box(heading: [Span enforcing gaplessness])[
-  - $cal(S)$-symmetric gapped phases $approx$ $"TQFT"(cal(S))$
+  Gapped phases with symmetry $cal(S)$ $arrow.l.r.double$ TQFTs with $cal(S)$-action.
+  - $"TQFT"(cal(S))$: set of $cal(S)$-symmetric TQFTs.
   - $i_(cal(C))^* : "TQFT"(cal(C)) arrow.r "TQFT"(cal(E))$ : restriction of symmetry
-
 
   #callout-important[
     *Criterion:* If
@@ -339,12 +330,12 @@
 
   #align(center)[#span-diagram-U1-TY-lattice()]
 
-  *XX chain:* $cal(H) = limits(times.o)_j CC^2_j$ \
+  *XX chain:* $cal(H) = limits(times.o)_j CC^2_j$, $H= sum_j (Y_j Z_(j+1) - Z_j Y_(j+1))$ \
     #context h(measure([*XX chain:*#" "]).width)with KW duality $"TY"(ZZ_2)$ and $"U"(1)$: $Q = sum_j X_j$.
   - Span generates *Onsager algebra* @Vernier:2018han @Pace:2024oys, $tilde(Q) = sum_j Z_j Z_(j+1)$.
 
-  *$ZZ_N$ clock chain:* $cal(H) = limits(times.o)_j CC^N_j$, same span with $"TY"(ZZ_N)$, Onsager algebra @Vernier:2018han.
-  - Symmetric *interacting* Hamiltonian \  with integrable RG flow: $c = 1, 3(n-1) \/ (n+1)$ @Vernier:2018han.
+  *$ZZ_N$ clock chain:* $cal(H) = limits(times.o)_j CC^N_j$, $"U"(1)$ and $"TY"(ZZ_N)$.
+  - Symmetric *interacting* Hamiltonian with Onsager algebra \ with integrable RG flow: $c = 1, 3(n-1) \/ (n+1)$ @Vernier:2018han.
 
   #callout-important[
     Span provides a *new lattice argument* for gaplessness: 
@@ -363,7 +354,7 @@
 
   #callout-question[
     *Systematic Hamiltonian search:*
-    Find lattice Hamiltonians preserving gaplessness-enforcing spans
+    Find lattice Hamiltonians preserving gaplessness-enforcing spans\ 
     — _seeking collaborators!_
   ]
 ]
